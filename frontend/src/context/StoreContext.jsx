@@ -41,7 +41,7 @@ const getTotalCartAmount=()=>{
     setCartItems,
     addToCart,
     removeFromCart,
-    getTotalCartAmount
+    getTotalCartAmount,
   };
 
   return (
