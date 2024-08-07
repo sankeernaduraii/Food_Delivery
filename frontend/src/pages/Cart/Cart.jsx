@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import './Cart.css';
 import { StoreContext } from '../../context/StoreContext';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, food_list, removeFromCart,getTotalCartAmount } = useContext(StoreContext);
-
+const navigate=useNavigate();
   return (
     <div className='cart'>
       <div className="cart-items">
@@ -26,7 +27,7 @@ const Cart = () => {
                 <p>{item.name}</p>
                 <p>{item.price}</p>
                 <p>{cartItems[item._id]}</p> {/* Fixed cartItems access */}
-                <p>{item.price * cartItems[item._id]}</p> {/* Fixed cartItems access */}
+                <p>${item.price * cartItems[item._id]}</p> {/* Fixed cartItems access */}
                 <p>
                   <button onClick={() => removeFromCart(item._id)}>Remove</button>
                 </p>
@@ -49,15 +50,15 @@ const Cart = () => {
         <hr />
         <div className='cart-total-details'>
           <p>Delivery Fee</p>
-          <p>{2}</p> {/* Placeholder for delivery fee */}
+          <p>{45}</p> {/* Placeholder for delivery fee */}
         </div>
         <hr />
         <div className='cart-total-details'>
           <p>Total</p>
-          <p>{getTotalCartAmount()+2}</p> {/* Placeholder for total */}
+          <p>${getTotalCartAmount()+45}</p> {/* Placeholder for total */}
         </div>
         </div>
-        <button>PROCEED TO CHECKOUT</button>
+        <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
         </div>
      
 
