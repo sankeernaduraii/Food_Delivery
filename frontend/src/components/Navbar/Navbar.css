@@ -1,0 +1,175 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.navbar .logo {
+  width: 60px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  color: black;
+  font-size: 18px;
+}
+
+.navbar-menu li {
+  cursor: pointer;
+  padding-bottom: 2px;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.navbar-menu li:hover {
+  transform: translateY(-3px);
+}
+
+.navbar .active {
+  border-bottom: 2px solid burlywood;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-button {
+  background: linear-gradient(to right, orange, tomato); /* Gradient background */
+  font-size: 16px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* Ensure button text stays above animation */
+  transition: background 0.3s, transform 0.2s;
+}
+
+.navbar-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  z-index: -1; /* Behind the button */
+  transition: transform 0.3s ease-out;
+}
+
+.navbar-button:hover::before {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.navbar-button span {
+  position: relative;
+  z-index: 1; /* Ensure text is on top of the pseudo-element */
+ 
+}
+
+.navbar-button:hover {
+  background: linear-gradient(to right, rgb(225, 149, 86), rgb(240, 195, 69)); /* Change gradient on hover */
+}
+
+.navbar .icon {
+  width: 32px;
+  height: 32px;
+}
+
+.navbar .search-icon {
+  width: 32px; /* Match the size of the basket icon */
+  height: 32px; /* Match the size of the basket icon */
+}
+
+.navbar-search-icon {
+  position: relative;
+}
+
+.navbar-search-icon .dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: tomato;
+  border-radius: 50%;
+  top: -8px;
+  right: -8px;
+}
+
+.company-name {
+  font-size: 18px; /* Adjust the font size */
+  margin-left: 12px; /* Adjust spacing between logo and text */
+  font-family: cursive;
+  font-style: italic;
+  color:maroon;
+}
+@media(max-width:1050px)
+{
+  .navbar logo{
+    width: 140px;
+  }
+  .navbar-menu{
+    gap:20px;
+    font-size:17px;
+  }
+  .navbar-right{
+    gap:30px;
+  }
+  .navbar-right img{
+    width: 22px;
+  }
+  .navbar-right button{
+    padding: 8px 25px;
+  }
+}
+@media(max-width:900px)
+{
+  .navbar logo{
+    width: 120px;
+  }
+  .navbar-menu{
+    gap:15px;
+    font-size:16px;
+  }
+  .navbar-right{
+    gap:20px;
+  }
+  .navbar-right img{
+    width: 20px;
+  }
+  .navbar-right button{
+    padding: 7px 20px;
+    font: size 15px;
+  }
+}
+@media(max-width:900px)
+{
+ 
+  .navbar-menu{
+ display: none;
+  }
+ 
+}
